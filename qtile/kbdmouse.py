@@ -1,18 +1,19 @@
 # Keybindings for groups are defined in groups.py
 
 from os import environ
-from typing import List  # noqa: F401
 
 # from libqtile import extension
 from libqtile.command import lazy
 from libqtile.config import Click, Drag, Key
+
+from window import float_to_front
 
 Alt = "mod1"
 Super = "mod4"
 ApplicationLaunchModKey = Alt
 
 
-def build_keys(settings) -> List[Key]:
+def build_keys(settings) -> list[Key]:
     return [
         # Browser
         Key(
@@ -39,9 +40,7 @@ def build_keys(settings) -> List[Key]:
         Key(
             [Super, ApplicationLaunchModKey],
             "Return",
-            lazy.spawn(
-                "rofi -modi drun -show drun -theme-str '@import \"looniversity\"'"
-            ),
+            lazy.spawn("rofi-launcher"),
             desc="Show the rofi app launcher (drun)",
         ),
         # Lock screen
@@ -220,6 +219,7 @@ def build_keys(settings) -> List[Key]:
         Key(["control", Alt], "F5", lazy.core.change_vt(5), desc="Switch to VT 5"),
         Key(["control", Alt], "F6", lazy.core.change_vt(6), desc="Switch to VT 6"),
         # endregion
+        Key([Super, "shift"], "f", float_to_front),
     ]
 
 

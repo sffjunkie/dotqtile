@@ -1,4 +1,4 @@
-from ._types import Base16Colors, Properties, Theme
+from theme._types import Base16Colors, Properties
 
 DEFAULT_FONT = "Hack Nerd Font Mono"
 DEFAULT_ICON_FONT = "Material Design Icons"
@@ -73,14 +73,13 @@ DEFAULT_THEME: dict = {
     },
     "logo": "\uf313",
     "bar": {
+        "opacity": 1.0,
         "top": {
             "height": DEFAULT_BAR_HEIGHT,
-            "opacity": 1.0,
             "margin": (8, 8, 0, 8),
         },
         "bottom": {
             "height": DEFAULT_BAR_HEIGHT,
-            "opacity": 1.0,
             "margin": (0, 8, 8, 8),
         },
     },
